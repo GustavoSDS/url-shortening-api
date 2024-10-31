@@ -1,0 +1,35 @@
+---
+import CardService from "../ui/CardService.astro";
+import IconBrandRecognition from "../icons/IconBrandRecognition.astro";
+import IconDetailRecords from "../icons/IconDetailRecords.astro";
+import IconFullyCustomizable from "../icons/IconFullyCustomizable.astro";
+---
+
+<section class="px-6 pt-40 pb-20 text-center bg-neutral-veryLightGray">
+	<h2 class="text-[27px] font-bold">Advanced Statistics</h2>
+	<p class="mt-4 text-lg text-neutral-grayishViolet">
+		Track how your links are performing across the web with our advanced
+		statistics dashboard.
+	</p>
+
+	<div class="flex flex-col gap-y-[88px] mt-[90px]">
+		<CardService
+			hasLine
+			title="Brand Recognition"
+			description="Boost your brand recognition with each click. Generic links don’t mean a thing. Branded links help instil confidence in your content.">
+			<IconBrandRecognition slot={"icon"} />
+		</CardService>
+
+		<CardService
+			hasLine
+			title="Detailed Records"
+			description="Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions.">
+			<IconDetailRecords slot={"icon"} />
+		</CardService>
+		<CardService
+			title="Fully Customizable"
+			description="Improve brand awareness and content discoverability through customizable links, supercharging audience engagement.">
+			<IconFullyCustomizable slot={"icon"} />
+		</CardService>
+	</div>
+</section>

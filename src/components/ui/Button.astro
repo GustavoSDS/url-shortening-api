@@ -1,0 +1,18 @@
+---
+interface Props {
+	text: string;
+	url?: string;
+	class?: string;
+}
+
+const { text, url, class: className } = Astro.props;
+---
+
+<a
+	href={url}
+	class:list={[
+		"w-full text-white font-bold text-xl py-3 px-10 bg-primary-cyan hover:bg-primary-cyan/80 block text-center",
+		className,
+	]}>
+	{text}
+</a>

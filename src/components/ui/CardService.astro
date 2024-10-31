@@ -1,0 +1,27 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	hasLine?: boolean;
+}
+
+const { title, description, hasLine } = Astro.props as Props;
+---
+
+<div
+	class="relative flex flex-col w-full px-8 pb-8 pt-16 bg-white rounded items-center gap-4 justify-center">
+	<div
+		class="absolute -top-10 right-1/2 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-primary-darkViolet grid place-items-center">
+		<slot name="icon" />
+	</div>
+	<h3 class="font-bold text-[22px] text-neutral-veryDarkViolet">
+		{title}
+	</h3>
+	<p class="text-neutral-grayishViolet text-lg font-medium leading-[26px]">
+		{description}
+	</p>
+	{hasLine && (
+		<span class="h-12 w-2 bg-primary-cyan absolute -bottom-12">
+		</span>
+	)}
+</div>

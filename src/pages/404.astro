@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
+---
+
+<Layout title="404 - Page Not Found">
+	<main class="relative flex flex-col items-center justify-center w-full h-full min-h-[50vh]">
+		<Image
+			class="w-full h-full"
+			src="/images/illustration-working.svg"
+			alt="Illustration Working"
+			width={1000}
+			height={1000}
+		/>
+
+		<section class="absolute flex flex-col items-center justify-center w-full text-center -translate-x-1/2 left-1/2 right-1/2">
+			<h1 class="font-bold text-9xl text-secondary-red">404</h1>
+			<p class="mt-4 text-lg font-medium text-secondary-red">
+				The page you are looking for does not exist.
+			</p>
+            <Button text="Go Back Home" url="/" class="w-full mt-10 rounded-full max-w-fit bg-secondary-red hover:brightness-125 hover:bg-secondary-red" />
+		</section>
+	</main>
+</Layout>

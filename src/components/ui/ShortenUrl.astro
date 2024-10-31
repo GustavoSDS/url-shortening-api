@@ -1,0 +1,14 @@
+---
+import Button from "./Button.astro";
+---
+
+<div
+	class="absolute flex flex-col items-center justify-center w-11/12 h-40 gap-4 p-6 mx-auto -translate-x-1/2 bg-primary-darkViolet rounded-xl -bottom-20 left-1/2 right-1/2">
+	<input
+		type="text"
+		placeholder="https://www.google.com"
+		class="w-full py-3 pl-4 text-lg rounded-md outline-none placeholder:text-neutral-grayishViolet"
+	/>
+
+	<Button text="Shorten it!" url="/shorten" class="max-w-full rounded-md" />
+</div>

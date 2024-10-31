@@ -1,0 +1,133 @@
+---
+import IconFacebook from "./icons/IconFacebook.astro";
+import IconInstagram from "./icons/IconInstagram.astro";
+import IconPinterest from "./icons/IconPinterest.astro";
+import IconTwitter from "./icons/IconTwitter.astro";
+import Logo from "./ui/Logo.astro";
+
+export interface Links {
+	Features: Link[];
+	Resources: Link[];
+	Company: Link[];
+}
+
+export interface Link {
+	name: string;
+	url: string;
+}
+
+const classIconsSocial =
+	"hover:cursor-pointer hover:scale-110 hover:transition-all hover:duration-300 hover:ease-in-out";
+
+const classMenuList = "flex flex-col gap-y-[10px]";
+const classMenuFirstItem = "mb-4 font-bold text-base";
+const classMenuItem =
+	"text-[15px] font-medium hover:text-primary-cyan  hover:transition-colosr hover:duration-300 hover:ease-in-out";
+
+const LinskJSON: Links = {
+	Features: [
+		{
+			name: "Link Shortening",
+			url: "/features/link-shortening",
+		},
+		{
+			name: "Branded Links",
+			url: "/features/branded-links",
+		},
+		{
+			name: "Analytics",
+			url: "/features/analytics",
+		},
+	],
+	Resources: [
+		{
+			name: "Blog",
+			url: "/resources/blog",
+		},
+		{
+			name: "Developers",
+			url: "/resources/developers",
+		},
+		{
+			name: "Support",
+			url: "/resources/support",
+		},
+	],
+	Company: [
+		{
+			name: "About",
+			url: "/company/about",
+		},
+		{
+			name: "Our Team",
+			url: "/company/our-team",
+		},
+		{
+			name: "Careers",
+			url: "/company/careers",
+		},
+		{
+			name: "Contact",
+			url: "/company/contact",
+		},
+	],
+};
+
+const links: [string, Link[]][] = Object.entries(LinskJSON);
+---
+
+<footer
+	class="flex flex-col items-center justify-center text-white bg-neutral-veryDarkViolet">
+	<div class="grid h-32 place-items-center">
+		<Logo color="white" />
+	</div>
+
+	<div class="flex flex-col w-full text-center gap-y-10">
+		{
+			links.map(([title, links]) => (
+				<ul class={classMenuList}>
+					<li class={classMenuFirstItem}>{title}</li>
+					{links.map((link) => (
+						<li>
+							<a class={classMenuItem} href={link.url}>
+								{link.name}
+							</a>
+						</li>
+					))}
+				</ul>
+			))
+		}
+	</div>
+
+	<ul class="flex items-center justify-center w-full h-32 gap-x-6">
+		<li class={classIconsSocial}>
+			<a href="https://www.facebook.com">
+				<IconFacebook />
+			</a>
+		</li>
+		<li class={classIconsSocial}>
+			<a href="https://www.twitter.com">
+				<IconTwitter />
+			</a>
+		</li>
+		<li class={classIconsSocial}>
+			<a href="https://www.pinterest.com">
+				<IconPinterest />
+			</a>
+		</li>
+		<li class={classIconsSocial}>
+			<a href="https://www.instagram.com">
+				<IconInstagram />
+			</a>
+		</li>
+	</ul>
+
+	<div class="sr-only">
+		Challenge by <a
+			href="https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G"
+			target="_blank">Frontend Mentor</a
+		>. Coded by <a href="https://www.frontendmentor.io/GustavoSDS"
+			>Gustavo S. D. S.</a
+		>.
+	</div>
+</footer>
