@@ -3,9 +3,13 @@ import CardService from "../ui/CardService.astro";
 import IconBrandRecognition from "../icons/IconBrandRecognition.astro";
 import IconDetailRecords from "../icons/IconDetailRecords.astro";
 import IconFullyCustomizable from "../icons/IconFullyCustomizable.astro";
+import ShortenUrlComponent from "../ui/ShortenUrlComponent.svelte";
+
 ---
 
-<section class="px-6 pt-40 pb-20 text-center bg-neutral-veryLightGray">
+<section class="px-6 pt-40 pb-20 text-center bg-neutral-veryLightGray relative">
+	<ShortenUrlComponent client:load  />
+	
 	<h2 class="text-[27px] font-bold">Advanced Statistics</h2>
 	<p class="mt-4 text-lg text-neutral-grayishViolet">
 		Track how your links are performing across the web with our advanced
