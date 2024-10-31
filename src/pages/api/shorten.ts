@@ -4,7 +4,7 @@ export const POST: APIRoute = async ({ request }) => {
     const data = await request.formData();
     const url = data.get("url");
     
-    if (!url) {
+    if (!url || url === "") {
         return new Response(
             JSON.stringify({
                 message: "Please add a link"
@@ -13,7 +13,7 @@ export const POST: APIRoute = async ({ request }) => {
         );
     }
     
-/*     const response = await fetch("https://cleanuri.com/api/v1/shorten", {
+    const response = await fetch("https://cleanuri.com/api/v1/shorten", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -24,18 +24,16 @@ export const POST: APIRoute = async ({ request }) => {
     if (!response.ok) {
         return new Response(
             JSON.stringify({
-                error: "Error while shortening the URL"
+                message: "Error while shortening the URL"
             }),
             { status: 500 }
         );
-    } */
+    }
 
     return new Response(
         JSON.stringify({
-            // result: await response.json()
-            result: {
-                result_url: "https://www.google.com"
-            }
+            result: await response.json(),
+            message: "URL shortened successfully"
         }),
         { status: 200 }
     );
